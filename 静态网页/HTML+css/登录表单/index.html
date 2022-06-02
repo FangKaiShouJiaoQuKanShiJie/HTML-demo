@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
+    <script src="https://fastly.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <div class="box">
+        <div class="case">
+            <div class="search-box search-box1">
+                <input type="text" class="search-input search-input1">
+                <i class="glyphicon glyphicon-user"></i>
+            </div>
+        </div>
+        <div class="case">
+            <div class="search-box search-box2">
+                <input type="password" id="input" class="search-input search-input2">
+                <i class="glyphicon glyphicon-asterisk"></i>
+            </div>
+        </div>
+        <div class="search-button">
+            <button class="button1">登入</button>
+            <button class="button2 pass">
+                <i class="glyphicon glyphicon-repeat"></i>
+            </button>
+        </div>
+        <div class="github">
+            <div>
+                禚理成：https://github.com/FangKaiShouJiaoQuKanShiJie
+            </div>
+        </div>
+    </div>
+        <script>
+
+        let input1 = document.getElementsByClassName('search-input1')[0];
+        let glyphicon1 = document.getElementsByClassName('glyphicon')[0];
+        input1.oninput = function(e) {
+            console.log(1);
+            if(input1.value.length == 0){
+                glyphicon1.className = 'glyphicon glyphicon-user';
+            } else {
+                glyphicon1.className = 'glyphicon glyphicon-ok';
+            };
+        };
+
+
+        let input2 = document.getElementsByClassName('search-input2')[0];
+        let glyphicon2 = document.getElementsByClassName('glyphicon')[1];
+        input2.oninput = function(e) {
+            if(input2.value.length == 0){
+                glyphicon2.className = 'glyphicon glyphicon-asterisk';
+            } else {
+                glyphicon2.className = 'glyphicon glyphicon-ok';
+            };
+        };
+
+        let search = document.getElementsByClassName('search-button')[0];
+        let button1 = document.getElementsByClassName('button1')[0];
+        let button2 = document.getElementsByClassName('button2')[0];
+        search.onclick = function(e){
+            button2.className = button2.className==='button1'?'button2 pass':'button1';
+            button1.className = button1.className==='button1'?'button2 pass':'button1';
+            setTimeout(() => {
+                button2.className = button2.className==='button1'?'button2 pass':'button1';
+                button1.className = button1.className==='button1'?'button2 pass':'button1';
+                input1.value = null;
+                glyphicon1.className = 'glyphicon glyphicon-user';
+                input2.value = null;
+                glyphicon2.className = 'glyphicon glyphicon-asterisk';
+            }, 2000);
+        };
+    </script>
+  </body>
+</html>
